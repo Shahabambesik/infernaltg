@@ -48,7 +48,7 @@ local function run(msg, matches)
   local receiver = get_receiver(msg)
 
   -- Id of the user and info about group / channel
-  if matches[1] == "id" then
+  if matches[1] == "/id" then
     if msg.to.type == 'channel' then
       return ('Chat ID: %s\nUser ID: %s'):format(msg.to.id, msg.from.id)
     end
@@ -168,13 +168,14 @@ return {
     "/id members name <text>: Search for users with <text> on first_name, print_name or username on current chat"
   },
   patterns = {
-    "^[#!/]id$",
-    "^[#!/]ids? (chat) (%d+)$",
-    "^[#!/]ids? (chat)$",
-    "^[#!/]ids (channel)$",
-    "^[#!/]ids (channel) (%d+)$",
-    "^[#!/]id (member) (@)(.+)",
-    "^[#!/]id (members) (name) (.+)"
+    "^/id$",
+    "^/ids? (chat) (%d+)$",
+    "^/ids? (chat)$",
+    "^/ids (channel)$",
+    "^/ids (channel) (%d+)$",
+    "^/id (member) (@)(.+)",
+    "^/id (members) (name) (.+)"
   },
   run = run
 }
+--log
